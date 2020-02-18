@@ -1,24 +1,24 @@
-# README
+# Eventbrite :mega:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Eventbrite!
 
-Things you may want to cover:
+An eventbrite-like website made with rails.
 
-* Ruby version
+## Local :wrench:
 
-* System dependencies
+```bash
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed #To create a random database
+rails s #To start the server
+```
 
-* Configuration
+## On Heroku here
 
-* Database creation
+mense-hamlet-35150.herokuapp.com/
 
-* Database initialization
 
-* How to run the test suite
+## Team  :heart:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Fleur, Mathieu and Jonas from Strasbourg :beer:
