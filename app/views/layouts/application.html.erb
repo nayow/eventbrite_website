@@ -4,12 +4,38 @@
     <title>EventbriteApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">eventbrite!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Accueil</a>
+          </li>
+        </ul>
+      </div>
+      <% if user_signed_in? %>
+        <span>Bonjour <%= @user.first_name %> </span>
+        ### LINK TO DISCONNECT 
+        <%= button_to "Se déconnecter", class:"btn btn-primary btn-sm"%>
+        <%= link_to "Profil", user_path, class:"btn btn-secondary btn-sm" %>
+      <% else %>
+        <%= link_to "Se connecter", new_user_session_path, class:"btn btn-primary btn-sm" %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-secondary btn-sm" %>
+      <% end %>
+      </nav>
+    </header>
+  
     <%= yield %>
   </body>
 </html>

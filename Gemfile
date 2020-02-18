@@ -69,4 +69,5 @@ end
 # Added by myself 
 gem 'table_print' # to visualize the db
 gem 'faker' # to access random strings for seeds.rb
-gem 'dotenv-rails'
+gem 'dotenv-rails' # for encrypted things in .env and .gitignore
+gem 'devise' # login/logouts/session/cookie/etc
