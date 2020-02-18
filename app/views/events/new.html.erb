@@ -1,2 +1,27 @@
 <h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+
+<br/>
+<div style="margin-left:30%; margin-right:30%;">
+  <%=form_tag url_for(action: 'create'), method: 'post' do %> 
+    <%= text_field_tag 'title' ,"", class:"form-control", placeholder: "Titre" %><br/>
+    <%= text_field_tag 'location' ,"", class:"form-control", placeholder: "Lieu" %><br/>
+    <%= datetime_field_tag 'start_date' ,"", class:"form-control", placeholder: Time.zone.now %><br/>
+    <%= text_area_tag 'description' ,"", class:"form-control", placeholder: "Description" %><br/>
+    <%= text_field_tag 'duration' ,"", class:"form-control", placeholder: "Durée" %><br/>
+    <%= text_field_tag 'price' ,"", class:"form-control", placeholder: "Prix" %><br/>
+    <%= submit_tag "Créer", class: 'btn btn-secondary' %>
+  <% end %>
+</div>
+
+<div>
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
