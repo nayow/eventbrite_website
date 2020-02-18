@@ -1,24 +1,22 @@
-<h1>Users#show</h1>
-<br/>
-<%= @user.first_name %><br/>
-<%= @user.last_name %><br/>
-<%= @user.description %><br/>
-<%= @user.email %><br/>
-<br/>
+<br/><br/><br/>
+<div style="margin-left:30%; margin-right:30%;">
 
-<div>
-  <h3>Participe à :</h3>
-  <% Attendance.retrieve_events_created_by(@user.id).each do |event| %>
-    <%= link_to event.title , event_path(event.id) %><br/>
-  <% end %>
-  
-  <h3>Créateur de :</h3>
-  <% Event.all.each do |event| %>
-    <% if event.admin_id == @user.id %>
-      <%= link_to event.title , event_path(event.id) %><br/>
-    <% end %>
-  <% end %>
+<h2>Profil de <%= @user.first_name %><%= @user.first_name %></h2><hr><br/>
 
+  <div>
+    <h5>Description</h5><%= @user.description %><br/><br/>
+    <h5>Email</h5><%= @user.email %><br/><br/>
+    <h5>Participe à :</h5>
+      <% Attendance.retrieve_events_created_by(@user.id).each do |event| %>
+        <%= link_to event.title , event_path(event.id) %><br/><br/>
+      <% end %>
+    <h5>Créateur de :</h5>
+      <% Event.all.each do |event| %>
+        <% if event.admin_id == @user.id %>
+          - <%= link_to event.title , event_path(event.id) %><br/>
+        <% end %>
+      <% end %>
+  </div>
+  <hr>
+  <p><%= link_to 'Modifier les infos' , edit_user_registration_path, class:"btn btn-secondary" %></p>
 </div>
-
-<p><%= link_to 'Modifier les infos' , edit_user_registration_path %></p>

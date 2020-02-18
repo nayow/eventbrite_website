@@ -1,7 +1,7 @@
+<br/><br/><br/>
 <div style="margin-left:30%; margin-right:30%;">
 
-  <h2>Log in</h2>
-  <br/>
+  <h2>Log in</h2><hr><br/>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
@@ -18,7 +18,7 @@
       </div>
     <% end %>
       
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:"btn btn-secondary float-right" %>
 
   <% end %>
 

@@ -1,3 +1,4 @@
+<main role="main">
 <div class="jumbotron">
   <div class="container">
     <h1 class="display-3">eventbrite!</h1>
@@ -6,15 +7,16 @@
   </div>
 </div>
 
-<div class="card-columns" style="margin-left:7%; margin-right:7%;">
+<div class="card-columns" style="margin-left:10%; margin-right:10%;">
   <% Event.all.each do |event| %>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><%= event.title %></h5>
+      <h4 class="card-title"><%= event.title %></h4>
+      <p class="card-text text-muted"><%= event.start_date %></p>
       <p class="card-text"><%= event.description %></p>
       <p><%= button_to "Plus d'infos", event_path(event.id), method: :get, class:"btn btn-secondary" %></p>
-      <p class="card-text"><small class="text-muted"><%= event.start_date %></small></p>
     </div>
   </div>
   <% end %>
 </div>
+<main role="main">
