@@ -1,0 +1,28 @@
+<br/><br/><br/>
+<div style="margin-left:10%; margin-right:10%;">
+
+  <h2>Participants</h2><hr><br/>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @attendants.each_with_index do |attendant,index| %>
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td><%= attendant.first_name %></td>
+          <td><%= attendant.last_name %></td>
+          <td><%= attendant.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <%= link_to 'Mon espace événement', edit_event_path(@event.id) %>
+</div>

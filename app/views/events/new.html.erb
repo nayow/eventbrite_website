@@ -1,7 +1,7 @@
 <br/><br/><br/>
 <div style="margin-left:30%; margin-right:30%;">
 
-<h2>Nouvel événement</h2><hr><br/>
+  <h2>Nouvel événement</h2><hr><br/>
 
   <%=form_tag url_for(action: 'create'), method: 'post' do %> 
     <%= text_field_tag 'title' ,"", class:"form-control", placeholder: "Titre" %><br/>

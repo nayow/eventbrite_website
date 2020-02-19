@@ -11,5 +11,13 @@
     <h5>Admin</h5><%= link_to @event.admin.email , user_path(@event.admin.id) %><br/><br/>
     <h5>Nombre de participants</h5> <%= @event.users.count %>
   </div>
+  <hr>
+  <% if user_signed_in? %>
+    <% if !current_user.is_admin_or_participant?(@event) %>
+      <%= link_to 'Participer', new_event_attendance_path(@event.id) %>
+    <% elsif current_user.is_admin?(@event) %>
+      <%= link_to 'Mon espace événement', event_attendances_path(@event.id) %>
+    <% end %>
+  <% end %>
 
 </div>
