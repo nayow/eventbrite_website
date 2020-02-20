@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def is_admin?
+  private
+
+  def is_admin? ### A METTRE DS LES HELPERS?
     unless current_user.id.to_i == params[:id].to_i
       redirect_to new_user_session_path
     end

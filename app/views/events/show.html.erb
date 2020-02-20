@@ -14,9 +14,9 @@
   <hr>
   <% if user_signed_in? %>
     <% if !current_user.is_admin_or_participant?(@event) %>
-      <%= link_to 'Participer', new_event_attendance_path(@event.id) %>
+      <%= link_to 'Participer', new_event_attendance_path(@event.id), class:'btn btn-primary' %>
     <% elsif current_user.is_admin?(@event) %>
-      <%= link_to 'Mon espace événement', event_attendances_path(@event.id) %>
+      <%= link_to 'Mon espace événement', event_attendances_path(@event.id), class:'btn btn-primary' %>
     <% end %>
   <% end %>
 

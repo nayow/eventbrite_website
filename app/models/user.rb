@@ -12,4 +12,13 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
+  def is_admin_or_participant?(event)
+    attendants_id = event.users.pluck('id')
+    attendants_id.include?(self.id) || self.is_admin?(event)
+  end
+
+  def is_admin?(event)
+    event.admin.id == self.id
+  end
+
 end

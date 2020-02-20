@@ -1,6 +1,28 @@
 <br/><br/><br/>
 <div style="margin-left:10%; margin-right:10%;">
 
-  <h2>Participants</h2><hr><br/>
+  <h2>Modifier l'événement</h2><hr><br/>
+    <%=form_tag url_for(action: 'update'), method: 'patch' do %> 
+      <%= text_field_tag 'title' ,"", class:"form-control", placeholder: @event.title %><br/>
+      <%= text_field_tag 'location' ,"", class:"form-control", placeholder: @event.location %><br/>
+      <%= datetime_field_tag 'start_date' ,"", class:"form-control", placeholder: @event.start_date %><br/>
+      <%= text_area_tag 'description' ,"", class:"form-control", placeholder: @event.description %><br/>
+      <%= text_field_tag 'duration' ,"", class:"form-control", placeholder: @event.duration %><br/>
+      <%= text_field_tag 'price' ,"", class:"form-control", placeholder: @event.price %><br/>
+      <%= submit_tag "Modifier", class: 'btn btn-primary' %>
+    <% end %>
+
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br/><br/><hr>
+  <%= button_to "Supprimer", @event, method: :delete, data:{confirm: "Es-tu sûr de le supprimer?"}, class:"btn btn-danger float-right" %><br/>
 
 </div>
