@@ -19,4 +19,8 @@
   </div>
   <hr>
   <p><%= link_to 'Modifier les infos' , edit_user_registration_path, class:"btn btn-secondary" %></p>
+  <%= form_tag user_avatars_path(@user), multipart: true do %>
+    <%= file_field_tag :avatar %>
+    <%= submit_tag "mettre à jour" %>
+  <% end %>
 </div>
