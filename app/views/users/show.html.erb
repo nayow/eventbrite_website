@@ -17,7 +17,7 @@
         <% end %>
       <% end %>
   </div>
-  <hr>
+  <hr> ### ONLY IF ADMIN OR CURRENT USER A RAJOUTER PR ENLEVER LE BOUTON
   <p><%= link_to 'Modifier les infos' , edit_user_registration_path, class:"btn btn-secondary" %></p>
   <%= form_tag user_avatars_path(@user), multipart: true do %>
     <%= file_field_tag :avatar %>

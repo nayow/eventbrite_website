@@ -5,9 +5,11 @@
 
   <div>
     <h5>Titre</h5><%= @event.title %><br/><br/>
+    <h5>Date</h5><%= @event.start_date %><br/><br/>
     <h5>Description</h5><%= @event.description %><br/><br/>
     <h5>Durée</h5><%= @event.duration %><br/><br/>
     <h5>Lieu</h5><%= @event.location %><br/><br/>
+    <h5>Date</h5><%= @event.price %><br/><br/>
     <h5>Admin</h5><%= link_to @event.admin.email , user_path(@event.admin.id) %><br/><br/>
     <h5>Nombre de participants</h5> <%= @event.users.count %>
   </div>

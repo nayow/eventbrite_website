@@ -1,10 +1,15 @@
 <br/><br/><br/>
 <div style="margin-left:30%; margin-right:30%;">
 
-  <h2>Sign up</h2><hr><br/>
+  <h2>Modifier l'utilisateur</h2><hr>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <!-- admin/user helper needed for this section to define "resource" as it is an internal devise feature initially limited to the devise scaffold -->
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.label "Administrateur : " %>
+    <%= f.check_box :is_admin %><br/><br/>
 
     <%= f.label "Prénom" %>
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:"form-control" %><br/>
@@ -24,10 +29,10 @@
       <em>(<%= @minimum_password_length %> characters minimum)</em><br/>
     <% end %><br />
 
-    <%= f.label "Reconfirme ton password" %>
+    <%= f.label "Reconfirme le password" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %><br/>
 
-    <%= f.submit "Sign up", class:"btn btn-secondary float-right" %>
+    <%= f.submit "Update", class:"btn btn-secondary float-right" %>
   <% end %>
 
   <%= render "devise/shared/links" %>

@@ -35,13 +35,13 @@ class EventsController < ApplicationController
   end
 
   def update
-    # @event = Event.find(params[:id])
-    # @event.update()
-    # if @event.save
-    #   redirect_to event_path(@event.id)
-    # else
-    #   render :edit
-    # end
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    if @event.save
+      redirect_to event_path(@event.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -55,6 +55,11 @@ class EventsController < ApplicationController
   def is_admin? ### A METTRE DS LES HELPERS?
     @event = Event.find(params[:id]) ### REPEATING
     current_user.id.to_i == @event.admin.id.to_i
+    # FLASH ERROR
+  end
+
+  def event_params
+    params.permit(:title, :location, :start_date, :description, :duration, :price)
   end
 
 end

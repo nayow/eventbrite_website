@@ -2,9 +2,12 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events, through: :attendances
   has_many :admins, class_name: 'Event', foreign_key: 'event_id'
+  
   has_one_attached :avatar
 
-  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :email, presence: true, uniqueness: true
+
   # after_create :welcome_send
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
